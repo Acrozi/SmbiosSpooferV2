@@ -7,6 +7,7 @@ A UEFI-based SMBIOS spoofer that modifies hardware identifiers at the firmware l
 ## Table of Contents
 
 - [Overview](#overview)
+- [Showcase](#showcase)
 - [Spoofed Identifiers](#spoofed-identifiers)
 - [Key Features](#key-features)
 - [How It Works](#how-it-works)
@@ -21,6 +22,14 @@ A UEFI-based SMBIOS spoofer that modifies hardware identifiers at the firmware l
 ## Overview
 
 This spoofer modifies SMBIOS (System Management BIOS) tables in memory during the UEFI boot phase, effectively changing your system's hardware identifiers before the operating system loads.
+
+---
+
+## Showcase
+
+![SMBIOS Spoofer in Action](images/spoof.jpg)
+
+*The spoofer running during UEFI boot phase, modifying hardware identifiers before Windows loads.*
 
 ### Spoofed Identifiers
 
@@ -228,6 +237,32 @@ build -a X64 -t VS2022 -p SmbiosSpooferV2/SmbiosSpooferV2.dsc -b RELEASE
 ## Installation
 
 **Note:** A pre-compiled `.efi` file is available in the `releases/` folder. You can use this directly without building from source.
+
+### Prerequisites
+
+**Before installing, ensure the following UEFI firmware settings are configured:**
+
+1. **Secure Boot: DISABLED**
+   - Enter UEFI/BIOS settings (usually `F2`, `F10`, `DEL`, or `ESC` during boot)
+   - Navigate to Security/Boot settings
+   - Disable "Secure Boot"
+   - Save and exit
+   - **Why:** Unsigned EFI applications cannot run with Secure Boot enabled
+
+2. **CSM/Legacy Boot Mode: DISABLED**
+   - Ensure UEFI mode is enabled (not Legacy/CSM mode)
+   - Some systems call this "UEFI Boot Mode" or "Boot Mode: UEFI"
+   - **Why:** This spoofer requires UEFI firmware, not legacy BIOS
+
+3. **Fast Boot: Optional (Recommended: DISABLED)**
+   - Disable "Fast Boot" for easier access to UEFI settings
+   - Helps with debugging if issues occur
+
+4. **TPM (Trusted Platform Module): Optional**
+   - TPM can remain enabled, but some systems may require disabling for EFI modification access
+   - Only disable if you experience boot issues
+
+### Installation Steps
 
 1. Copy the compiled `SmbiosSpooferV2.efi` to your EFI System Partition (ESP)
    - Typically located at `C:\EFI\` or mounted at `/boot/efi/` on Linux
