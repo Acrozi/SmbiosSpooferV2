@@ -1,6 +1,7 @@
 # Build outputs
 Build/
 *.efi
+!releases/*.efi
 *.obj
 *.lib
 *.pdb
