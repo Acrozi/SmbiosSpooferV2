@@ -1,7 +1,5 @@
 # EFI SMBIOS Spoofer V2
 
-**Developed by [Acrozi](https://github.com/Acrozi)**
-
 A UEFI-based SMBIOS spoofer that modifies hardware identifiers at the firmware level before Windows boots. This ensures that spoofed values are visible to all software, including anti-cheat systems and hardware fingerprinting tools.
 
 ---
