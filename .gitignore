@@ -1,0 +1,32 @@
+# Build outputs
+Build/
+*.efi
+*.obj
+*.lib
+*.pdb
+
+# IDE files
+.vs/
+*.suo
+*.user
+*.ncb
+*.aps
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# Archives
+*.zip
+*.rar
+*.7z
+
+# Temporary files
+*.tmp
+*.bak
+*.log
+
+# EDK2 build artifacts
+Conf/
+AutoGen.*
+

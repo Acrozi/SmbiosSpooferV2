@@ -1,0 +1,39 @@
+[Defines]
+  INF_VERSION                    = 0x00010006
+  BASE_NAME                      = SmbiosSpooferV2
+  FILE_GUID                      = B2C3D4E5-F6A7-8901-BCDE-F12345678901
+  MODULE_TYPE                    = UEFI_APPLICATION
+  VERSION_STRING                 = 2.0
+  ENTRY_POINT                    = UefiMain
+
+[Sources]
+  main.c
+  smbios.c
+  finder.c
+  utils.c
+  patch.c
+  persistence.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+
+[LibraryClasses]
+  UefiApplicationEntryPoint
+  UefiLib
+  UefiBootServicesTableLib
+  UefiRuntimeServicesTableLib
+  PcdLib
+  DebugLib
+  BaseMemoryLib
+  BaseLib
+  PrintLib
+  MemoryAllocationLib
+  DevicePathLib
+
+[Guids]
+  gEfiGlobalVariableGuid
+
+[Protocols]
+  gEfiSmbiosProtocolGuid
+  gEfiSimpleFileSystemProtocolGuid
+
